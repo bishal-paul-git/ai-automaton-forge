@@ -1,42 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* AI-themed design system for automation engineers */
 
 @layer base {
   :root {
+    /* AI Color Palette */
+    --ai-primary: 259 100% 70%;        /* #6C63FF - neon violet */
+    --ai-primary-foreground: 0 0% 98%;
+    --ai-dark: 245 25% 14%;            /* #1F1D36 - dark AI backdrop */
+    --ai-light: 210 40% 96%;           /* #F1F6F9 - light surface */
+    --ai-accent: 352 100% 65%;         /* #FF4C60 - CTA red */
+    --ai-highlight: 157 100% 48%;      /* #00F5A0 - highlight green */
+    --ai-muted: 220 15% 50%;           /* #6B7280 - muted text */
+    
+    /* Light theme */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 245 25% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 245 25% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
+    --popover-foreground: 245 25% 14%;
+    --primary: 259 100% 70%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 245 25% 14%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 15% 50%;
+    --accent: 259 100% 70%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 352 100% 65%;
+    --destructive-foreground: 0 0% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --ring: 259 100% 70%;
+    --radius: 0.75rem;
+    
+    /* AI Gradients */
+    --gradient-ai-hero: linear-gradient(135deg, hsl(245 25% 8%), hsl(259 100% 15%));
+    --gradient-ai-card: linear-gradient(145deg, hsl(0 0% 100% / 0.05), hsl(259 100% 70% / 0.1));
+    --gradient-ai-glow: radial-gradient(circle at center, hsl(259 100% 70% / 0.3), transparent 70%);
+    
+    /* Shadows & Effects */
+    --shadow-ai-glow: 0 0 30px hsl(259 100% 70% / 0.3);
+    --shadow-ai-card: 0 10px 40px hsl(245 25% 8% / 0.1);
+    --shadow-ai-button: 0 4px 20px hsl(259 100% 70% / 0.4);
+    
+    /* Animations */
+    --transition-ai: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-scale: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +71,31 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Dark theme AI colors */
+    --background: 245 25% 8%;
+    --foreground: 210 40% 96%;
+    --card: 245 25% 12%;
+    --card-foreground: 210 40% 96%;
+    --popover: 245 25% 12%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 259 100% 70%;
+    --primary-foreground: 245 25% 8%;
+    --secondary: 245 25% 16%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 245 25% 16%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 259 100% 70%;
+    --accent-foreground: 245 25% 8%;
+    --destructive: 352 100% 65%;
+    --destructive-foreground: 245 25% 8%;
+    --border: 245 25% 20%;
+    --input: 245 25% 20%;
+    --ring: 259 100% 70%;
+    
+    /* Dark gradients */
+    --gradient-ai-hero: linear-gradient(135deg, hsl(245 25% 4%), hsl(259 100% 8%));
+    --gradient-ai-card: linear-gradient(145deg, hsl(245 25% 16% / 0.8), hsl(259 100% 70% / 0.05));
+    --shadow-ai-card: 0 10px 40px hsl(245 25% 4% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +113,106 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space-grotesk;
+  }
+}
+
+@layer components {
+  /* AI-themed component styles */
+  .ai-glow {
+    box-shadow: var(--shadow-ai-glow);
+  }
+  
+  .ai-card {
+    background: var(--gradient-ai-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-ai-card);
+  }
+  
+  .ai-hero-bg {
+    background: var(--gradient-ai-hero);
+    position: relative;
+  }
+  
+  .ai-hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-ai-glow);
+    opacity: 0.1;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  
+  .ai-button {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transition: var(--transition-ai);
+    box-shadow: var(--shadow-ai-button);
+  }
+  
+  .ai-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 30px hsl(var(--primary) / 0.6);
+  }
+  
+  .ai-accent-button {
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+  
+  .ai-accent-button:hover {
+    background: hsl(var(--destructive) / 0.9);
+    box-shadow: 0 8px 30px hsl(var(--destructive) / 0.6);
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  /* Dot pattern background */
+  .ai-dots {
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Pulse animation for glow effects */
+  @keyframes pulse {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+  }
+  
+  /* Fade in animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Stagger animation delays */
+  .fade-in:nth-child(1) { transition-delay: 0.1s; }
+  .fade-in:nth-child(2) { transition-delay: 0.2s; }
+  .fade-in:nth-child(3) { transition-delay: 0.3s; }
+  .fade-in:nth-child(4) { transition-delay: 0.4s; }
 }

@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'space-grotesk': ['Space Grotesk', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				ai: {
+					primary: 'hsl(var(--ai-primary))',
+					dark: 'hsl(var(--ai-dark))',
+					light: 'hsl(var(--ai-light))',
+					accent: 'hsl(var(--ai-accent))',
+					highlight: 'hsl(var(--ai-highlight))',
+					muted: 'hsl(var(--ai-muted))',
 				}
 			},
 			borderRadius: {
