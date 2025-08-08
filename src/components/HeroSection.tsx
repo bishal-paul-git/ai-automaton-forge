@@ -40,10 +40,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Engineering AI Systems That{" "}
-              <span className="bg-gradient-to-r from-primary via-ai-highlight to-primary bg-clip-text text-transparent">
-                Work While You Sleep
-              </span>
+              Engineering AI Systems That Automate Workflows
             </motion.h1>
             
             <motion.p 
@@ -52,8 +49,7 @@ export const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              I build powerful automations with n8n, Vapi, OpenAI, and more. 
-              Transform your business processes into intelligent, self-running systems.
+              I build production-ready AI automations using n8n, OpenAI, Make, Vapi, and Supabase.
             </motion.p>
             
             <motion.div 

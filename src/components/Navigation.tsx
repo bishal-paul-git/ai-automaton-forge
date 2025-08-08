@@ -18,6 +18,7 @@ export const Navigation = () => {
   const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,26 @@ export const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0.1 }
+    );
+
+    navItems.forEach((item) => {
+      const el = document.querySelector(item.href);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (href: string) => {
@@ -68,7 +89,7 @@ export const Navigation = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-foreground hover:text-primary transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium"
+                  className={`transition-colors duration-200 px-3 py-2 rounded-md text-sm font-medium ${activeSection === item.href.slice(1) ? 'text-primary' : 'text-foreground'} hover:text-primary`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
@@ -127,7 +148,7 @@ export const Navigation = () => {
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+                    className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${activeSection === item.href.slice(1) ? 'text-primary' : 'text-foreground'} hover:text-primary`}
                   >
                     {item.name}
                   </button>
